@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор госпошлин РФ</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Калькулятор госпошлин РФ</h1>
+        <div class="info-box">
+            <p>Актуальные ставки на 2025 год согласно Налоговому кодексу РФ</p>
+            <p>Внимание: расчёт является предварительным. Для получения точной информации обратитесь в соответствующий государственный орган.</p>
+        </div>
+        <div class="calculator">
+            <div class="category-select">
+                <label for="duty-type">Выберите тип госпошлины:</label>
+                <select id="duty-type">
+                    <option value="court">Судебные пошлины</option>
+                    <option value="property">Регистрация недвижимости</option>
+                    <option value="marriage">Регистрация брака</option>
+                    <option value="passport">Загранпаспорт</option>
+                    <option value="business">Регистрация бизнеса</option>
+                </select>
+            </div>
+            <div id="calculation-form" class="calculation-form">
+                <!-- Динамическое содержимое будет добавлено через JavaScript -->
+            </div>
+            <div class="result">
+                <h3>Сумма госпошлины:</h3>
+                <div id="result-amount" class="result-amount">0 ₽</div>
+            </div>
+        </div>
+        <footer class="footer">
+            <p>Данные обновлены: Март 2025</p>
+            <p>Источник: Налоговый кодекс РФ, часть вторая, глава 25.3</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
