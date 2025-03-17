@@ -188,7 +188,12 @@ document.addEventListener('DOMContentLoaded', () => {
     dutyTypeSelect.addEventListener('change', () => {
         calculationForm.innerHTML = dutyForms[dutyTypeSelect.value];
         const inputs = calculationForm.querySelectorAll('input, select');
-        inputs.forEach(input => input.addEventListener('change', calculateDuty));
+        inputs.forEach(input => {
+            input.addEventListener('change', calculateDuty);
+            if (input.type === 'number') {
+                input.addEventListener('input', calculateDuty);
+            }
+        });
         calculateDuty();
     });
 
