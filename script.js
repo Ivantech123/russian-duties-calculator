@@ -131,11 +131,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 const caseType = document.getElementById('case-type')?.value;
                 
                 if (caseType === 'property') {
-                    for (const rate of RATES.court.propertyRates) {
-                        if (claimAmount <= rate.threshold) {
-                            amount = rate.rate + (claimAmount * rate.percent / 100);
+                    // Находим подходящую ставку
+                    let rate = RATES.court.propertyRates[0];
+                    for (const r of RATES.court.propertyRates) {
+                        if (claimAmount <= r.threshold) {
+                            rate = r;
                             break;
                         }
+                    }
+                    
+                    // Рассчитываем сумму пошлины
+                    if (rate.percent > 0) {
+                        amount = rate.rate + (claimAmount * rate.percent / 100);
+                    } else {
+                        amount = rate.rate;
                     }
                 } else if (caseType === 'administrative') {
                     amount = RATES.court.administrative;
