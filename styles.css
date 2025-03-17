@@ -75,6 +75,28 @@ select:focus, input:focus {
     margin-bottom: 2rem;
 }
 
+.calculate-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 20px 0;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.calculate-button:hover {
+    background-color: #45a049;
+}
+
+.calculate-button:active {
+    background-color: #3d8b40;
+}
+
 .result {
     text-align: center;
     padding: 1.5rem;

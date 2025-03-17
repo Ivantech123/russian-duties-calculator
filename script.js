@@ -198,13 +198,18 @@ document.addEventListener('DOMContentLoaded', () => {
         calculationForm.innerHTML = dutyForms[dutyTypeSelect.value];
         const inputs = calculationForm.querySelectorAll('input, select');
         inputs.forEach(input => {
-            input.addEventListener('change', calculateDuty);
-            if (input.type === 'number') {
-                input.addEventListener('input', calculateDuty);
-            }
+            input.addEventListener('change', () => {
+                // При изменении полей только проверяем валидность
+                const claimAmount = document.getElementById('claim-amount');
+                if (claimAmount) {
+                    claimAmount.classList.toggle('invalid', claimAmount.value < 0);
+                }
+            });
         });
-        calculateDuty();
     });
+
+    // Добавляем обработчик для кнопки расчета
+    document.getElementById('calculate-button').addEventListener('click', calculateDuty);
 
     // Initialize with the first form
     dutyTypeSelect.dispatchEvent(new Event('change'));
